@@ -1,0 +1,6 @@
+id,seed,template,brand,seconds,peak_gpu_gib,clip_score,identity_mean,identity_min,flicker,n_frames
+v_halvia_botanical,7,promo_motion,halvia,391.7000,22.9600,29.0487,0.9724,0.9629,1.2222,121
+v_halvia_water,7,promo_motion,halvia,391.8000,22.9600,32.2128,0.9523,0.9293,1.8413,121
+v_kivo_reel,7,promo_motion,kivo,383.0000,22.9600,35.9488,0.9868,0.9778,0.7525,121
+v_kivo_rooftop,7,promo_motion,kivo,383.0000,22.9600,36.0274,0.9827,0.9772,1.0575,121
+v_kivo_street,7,promo_motion,kivo,374.3000,22.9600,35.7931,0.9897,0.9839,0.9876,121

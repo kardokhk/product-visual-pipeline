@@ -1,0 +1,47 @@
+# Brand kits for the two fictional demonstration clients.
+# Every value here is referenced by name from prompts.yaml, so a new client
+# is onboarded by adding one block, not by rewriting prompts.
+
+halvia:
+  brand_name: HALVIA
+  category: botanical skincare
+  short: serum bottle
+  description: >-
+    a 30 mL frosted sage-green glass serum bottle with a brushed gold metal
+    collar and a white rubber dropper bulb, a matte cream-coloured paper label
+    printed with the word "HALVIA" in thin elegant black serif capitals and
+    below it the smaller words "Botanical Repair Serum" and "30 mL"
+  label_text: ["HALVIA", "Botanical Repair Serum", "30 mL"]
+  palette:            # name: hex (used by the colour-fidelity check)
+    sage: "#8A9A82"
+    sand: "#E8DCC8"
+    gold: "#B8955A"
+    charcoal: "#2B2B2B"
+  colour_lock: >-
+    The frosted glass keeps exactly its muted sage-green colour, the collar
+    stays brushed gold, the dropper bulb stays white and the label stays matte
+    cream with black text, whatever the colour of the scene's light
+  mood: calm, natural, premium, soft daylight
+  tagline: Repair, rooted in nature.
+
+kivo:
+  brand_name: KIVO
+  category: urban running footwear
+  short: running shoe
+  description: >-
+    a single modern low-profile running shoe in off-white knit mesh with a
+    thick sculpted white foam midsole, a bright coral-orange heel tab and
+    coral-orange laces, and the word "KIVO" printed in bold black sans-serif
+    capitals on the side of the heel
+  label_text: ["KIVO"]
+  palette:
+    offwhite: "#F2EFE9"
+    coral: "#F2674A"
+    graphite: "#3A3D42"
+    concrete: "#B9B7B1"
+  colour_lock: >-
+    The knit upper keeps exactly its off-white colour, the heel tab and laces
+    stay bright coral orange, the midsole stays white and the KIVO lettering
+    stays black, whatever the colour of the scene's light
+  mood: energetic, urban, clean, early-morning light
+  tagline: Run the city.

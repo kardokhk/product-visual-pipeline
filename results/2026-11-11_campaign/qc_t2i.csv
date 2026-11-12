@@ -1,0 +1,15 @@
+id,seed,template,brand,seconds,peak_gpu_gib,clip_score,palette_de
+before_kitchen,5,before_scene,,107.1000,19.5900,23.4880,
+before_kitchen,6,before_scene,,101.7000,19.5900,25.0542,
+before_livingroom,5,before_scene,,108.8000,19.5900,26.0121,
+before_livingroom,6,before_scene,,101.7000,19.5900,27.9028,
+before_sneaker,5,before_scene,,102.8000,19.5900,25.8744,
+before_sneaker,6,before_scene,,104.2000,19.5900,25.9305,
+halvia_master,11,product_master,halvia,132.3000,19.5900,30.6383,10.1891
+halvia_master,22,product_master,halvia,132.3000,19.5900,29.7866,9.0534
+halvia_master,33,product_master,halvia,132.3000,19.5900,30.3624,8.7742
+halvia_master,44,product_master,halvia,132.3000,19.5900,28.1463,9.8659
+kivo_master,11,product_master,kivo,108.8000,19.5900,35.0402,5.7493
+kivo_master,22,product_master,kivo,105.2000,19.5900,33.9377,5.4149
+kivo_master,33,product_master,kivo,110.2000,19.5900,34.8162,5.2404
+kivo_master,44,product_master,kivo,105.2000,19.5900,34.9168,5.1546

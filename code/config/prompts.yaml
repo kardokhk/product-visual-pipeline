@@ -1,0 +1,108 @@
+# Prompt template library.
+# Slots in {braces} are filled from brand.yaml ({b.*}) and from the job's own
+# fields ({scene}, {colour}, ...). Each template carries its own model,
+# sampler settings, negative prompt and a short QC caption that the
+# automatic scorer compares the output against.
+
+defaults:
+  negative_image: >-
+    blurry, out of focus, low resolution, jpeg artefacts, distorted label,
+    misspelled text, extra objects, duplicate product, warped geometry,
+    oversaturated, cartoon, illustration, 3d render look, watermark, logo of
+    another brand
+  negative_video: >-
+    flicker, jitter, warping, melting, morphing product, changing label text,
+    distorted text, blurry, low quality, compression artefacts, static frame,
+    sudden cuts, extra objects appearing
+
+templates:
+
+  # ---------------------------------------------------------------- text to image
+  product_master:
+    model: qwen_image_t2i
+    size: [1664, 928]
+    steps: 50
+    cfg: 4.0
+    text: >-
+      Professional commercial product photograph of {b.description}. The
+      product stands upright in the centre of the frame, occupying about one
+      third of the image height, on {surface}, against {backdrop}. {lighting}.
+      Shot on a full-frame camera with a 100 mm lens at f/8, the whole product
+      in sharp focus, accurate true-to-life colours, crisp legible label
+      typography, premium e-commerce catalogue quality, photorealistic.
+    qc_caption: "a studio product photo of a {b.brand_name} {b.short}"
+
+  before_scene:
+    model: qwen_image_t2i
+    size: [1664, 928]
+    steps: 50
+    cfg: 4.0
+    text: >-
+      Realistic photograph, {subject}. Natural light, eye-level camera, wide
+      lens, documentary real-estate photography style, photorealistic, no
+      people.
+    qc_caption: "{qc}"
+
+  # ---------------------------------------------------------------- image editing
+  scene_swap:
+    model: qwen_image_edit
+    steps: 40
+    cfg: 4.0
+    text: >-
+      Keep the {b.short} exactly as it is: identical shape, proportions,
+      materials, colours, label text and position in the frame. Replace only
+      the background and the surface it stands on with {scene}. Match the
+      lighting direction and colour temperature of the new scene, and add a
+      natural contact shadow and subtle reflections under the product.
+      Photorealistic advertising photograph, {b.mood}.
+    qc_caption: "a {b.short} {scene_short}"
+
+  # v2 of scene_swap after review of run 1: adds an explicit colour lock,
+  # because warm scene light pulled product colours off-brand.
+  scene_swap_lock:
+    model: qwen_image_edit
+    steps: 40
+    cfg: 4.0
+    text: >-
+      Keep the {b.short} exactly as it is: identical shape, proportions,
+      materials, colours, label text and position in the frame. {b.colour_lock}.
+      Replace only the background and the surface it stands on with {scene}.
+      Match the lighting direction of the new scene, and add a natural contact
+      shadow and subtle reflections under the product. Photorealistic
+      advertising photograph, {b.mood}.
+    qc_caption: "a {b.short} {scene_short}"
+
+  colourway:
+    model: qwen_image_edit
+    steps: 40
+    cfg: 4.0
+    text: >-
+      Change only the colour of the {part} of the {b.short} to {colour}. Keep
+      every other part, the label text, the shape, the background, the
+      lighting and the camera angle exactly the same. Photorealistic.
+    qc_caption: "a {b.short} with {colour} {part}"
+
+  transform:
+    model: qwen_image_edit
+    steps: 40
+    cfg: 4.0
+    text: >-
+      {instruction} Preserve the original camera position, perspective,
+      room or object geometry, window and door positions, and lighting
+      direction exactly, so that the result can be shown as an aligned
+      before-and-after pair. Photorealistic.
+    qc_caption: "{qc}"
+
+  # ---------------------------------------------------------------- image to video
+  promo_motion:
+    model: wan_i2v
+    size: [1280, 704]
+    frames: 121          # 5.0 s at 24 fps
+    fps: 24
+    steps: 50
+    cfg: 5.0
+    text: >-
+      {camera}. The {b.short} stays perfectly still, sharp and unchanged, its
+      label text "{b.brand_name}" remains clearly legible throughout. {ambient}.
+      Smooth cinematic commercial footage, shallow depth of field, {b.mood}.
+    qc_caption: "a {b.brand_name} {b.short} advertisement"

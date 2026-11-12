@@ -1,0 +1,16 @@
+# private working material
+notes/
+drafts/
+data/
+logs/
+local.env
+work_samples/
+# raw generation outputs (large; regenerable from the manifest); web copies live in docs/assets
+results/*/t2i/
+results/*/edit/
+results/*/video/
+results/*/video_q5/
+results/smoke/
+__pycache__/
+*.pyc
+.pytest_cache/

@@ -1,0 +1,157 @@
+# Campaign definition: what to produce. Each entry names a template, the
+# brand it belongs to, its slot values and the seeds to try. Inputs for edit
+# and video stages refer to outputs of earlier stages by id; "@best" means the
+# candidate chosen at the review gate (selection.yaml).
+
+t2i:
+  - id: halvia_master
+    template: product_master
+    brand: halvia
+    seeds: [11, 22, 33, 44]
+    slots:
+      surface: a smooth pale travertine stone plinth
+      backdrop: a seamless warm sand-coloured studio backdrop
+      lighting: Soft diffused window light from the left with a gentle fill, soft natural shadow
+
+  - id: kivo_master
+    template: product_master
+    brand: kivo
+    seeds: [11, 22, 33, 44]
+    slots:
+      surface: a light grey polished concrete floor, the shoe shown in side profile facing right
+      backdrop: a seamless pale grey studio backdrop
+      lighting: Crisp high-key studio lighting with a soft overhead key light and a subtle floor reflection
+
+  - id: before_kitchen
+    template: before_scene
+    brand: null
+    seeds: [5, 6]
+    slots:
+      subject: >-
+        a small dated 1990s kitchen with worn yellowed oak cabinet doors,
+        brown speckled laminate countertop, beige ceramic floor tiles, an old
+        white enamel sink under a single window, fluorescent ceiling light,
+        clean but tired
+      qc: "a dated old kitchen"
+
+  - id: before_livingroom
+    template: before_scene
+    brand: null
+    seeds: [5, 6]
+    slots:
+      subject: >-
+        an empty unfurnished living room in a newly built apartment with
+        white walls, light oak floorboards, a large window on the right wall
+        and a doorway on the left, completely empty, no furniture
+      qc: "an empty unfurnished living room"
+
+  - id: before_sneaker
+    template: before_scene
+    brand: null
+    seeds: [5, 6]
+    slots:
+      subject: >-
+        a close-up of one heavily worn plain white leather sneaker on a
+        wooden workbench, scuffed and dirty with grey grime, creased toe box,
+        yellowed rubber sole, frayed grey laces, no logos
+      qc: "a dirty worn white sneaker"
+
+edit:
+  # product-in-scene variants (identity preserved from the master)
+  - {id: halvia_bathroom, template: scene_swap, brand: halvia, input: halvia_master@best, seeds: [1, 2],
+     slots: {scene: "a bright minimalist bathroom shelf of pale travertine with a small eucalyptus sprig and a folded linen towel, blurred sunlit window behind", scene_short: "on a bathroom shelf"}}
+  - {id: halvia_botanical, template: scene_swap, brand: halvia, input: halvia_master@best, seeds: [1, 2],
+     slots: {scene: "a mossy river stone surrounded by fresh green ferns and soft morning mist in a forest, gentle dappled sunlight", scene_short: "among ferns in a forest"}}
+  - {id: halvia_water, template: scene_swap, brand: halvia, input: halvia_master@best, seeds: [1, 2],
+     slots: {scene: "a shallow pool of clear still water with soft ripples and scattered white flower petals, warm sand-coloured backdrop, caustic light patterns", scene_short: "standing in shallow water with petals"}}
+  - {id: halvia_vanity, template: scene_swap, brand: halvia, input: halvia_master@best, seeds: [1, 2],
+     slots: {scene: "a warm wooden vanity table in golden late-afternoon light with a round mirror and a small ceramic dish, cosy bedroom softly out of focus", scene_short: "on a wooden vanity table"}}
+
+  - {id: kivo_street, template: scene_swap, brand: kivo, input: kivo_master@best, seeds: [1, 2],
+     slots: {scene: "a wet city pavement at sunrise with soft reflections, blurred red-brick buildings and street lights behind", scene_short: "on a wet city pavement at sunrise"}}
+  - {id: kivo_track, template: scene_swap, brand: kivo, input: kivo_master@best, seeds: [1, 2],
+     slots: {scene: "the white lane line of a terracotta running track in bright morning sun, long shadows, stadium softly blurred", scene_short: "on a running track"}}
+  - {id: kivo_rooftop, template: scene_swap, brand: kivo, input: kivo_master@best, seeds: [1, 2],
+     slots: {scene: "a concrete rooftop ledge with a hazy city skyline at golden hour behind", scene_short: "on a rooftop with a city skyline"}}
+  - {id: kivo_studio_coral, template: scene_swap, brand: kivo, input: kivo_master@best, seeds: [1, 2],
+     slots: {scene: "a bold seamless coral-orange studio backdrop and floor with a hard graphic shadow", scene_short: "on a coral studio backdrop"}}
+
+  # run 1 review: same scenes and seeds with the colour-locked template (paired comparison)
+  - {id: halvia_bathroom_lock, template: scene_swap_lock, brand: halvia, input: halvia_master@best, seeds: [1, 2],
+     slots: {scene: "a bright minimalist bathroom shelf of pale travertine with a small eucalyptus sprig and a folded linen towel, blurred sunlit window behind", scene_short: "on a bathroom shelf"}}
+  - {id: halvia_botanical_lock, template: scene_swap_lock, brand: halvia, input: halvia_master@best, seeds: [1, 2],
+     slots: {scene: "a mossy river stone surrounded by fresh green ferns and soft morning mist in a forest, gentle dappled sunlight", scene_short: "among ferns in a forest"}}
+  - {id: halvia_water_lock, template: scene_swap_lock, brand: halvia, input: halvia_master@best, seeds: [1, 2],
+     slots: {scene: "a shallow pool of clear still water with soft ripples and scattered white flower petals, warm sand-coloured backdrop, caustic light patterns", scene_short: "standing in shallow water with petals"}}
+  - {id: halvia_vanity_lock, template: scene_swap_lock, brand: halvia, input: halvia_master@best, seeds: [1, 2],
+     slots: {scene: "a warm wooden vanity table in golden late-afternoon light with a round mirror and a small ceramic dish, cosy bedroom softly out of focus", scene_short: "on a wooden vanity table"}}
+  - {id: kivo_street_lock, template: scene_swap_lock, brand: kivo, input: kivo_master@best, seeds: [1, 2],
+     slots: {scene: "a wet city pavement at sunrise with soft reflections, blurred red-brick buildings and street lights behind", scene_short: "on a wet city pavement at sunrise"}}
+  - {id: kivo_track_lock, template: scene_swap_lock, brand: kivo, input: kivo_master@best, seeds: [1, 2],
+     slots: {scene: "the white lane line of a terracotta running track in bright morning sun, long shadows, stadium softly blurred", scene_short: "on a running track"}}
+  - {id: kivo_rooftop_lock, template: scene_swap_lock, brand: kivo, input: kivo_master@best, seeds: [1, 2],
+     slots: {scene: "a concrete rooftop ledge with a hazy city skyline at golden hour behind", scene_short: "on a rooftop with a city skyline"}}
+  - {id: kivo_studio_coral_lock, template: scene_swap_lock, brand: kivo, input: kivo_master@best, seeds: [1, 2],
+     slots: {scene: "a bold seamless coral-orange studio backdrop and floor with a hard graphic shadow", scene_short: "on a coral studio backdrop"}}
+  # run 1 review: every vanity candidate drifted warm; neutral daylight version
+  - {id: halvia_vanity2, template: scene_swap_lock, brand: halvia, input: halvia_master@best, seeds: [1, 2, 3, 4],
+     slots: {scene: "a pale oak vanity table in soft neutral overcast daylight with a round mirror and a small white ceramic dish, a calm bedroom softly out of focus", scene_short: "on a pale oak vanity table"}}
+
+  # vertical 9:16 scenes for social reels (master re-framed to portrait, then scene swap)
+  - {id: halvia_reel, template: scene_swap, brand: halvia, input: halvia_master@best, canvas: portrait, seeds: [1, 2],
+     slots: {scene: "a tall sunlit bathroom alcove of pale travertine, a eucalyptus sprig in a small glass vase beside the bottle, soft morning light streaming from a high window above, filling the whole vertical frame", scene_short: "in a sunlit bathroom alcove"}}
+  - {id: kivo_reel, template: scene_swap, brand: kivo, input: kivo_master@best, canvas: portrait, seeds: [1, 2],
+     slots: {scene: "a wet city pavement at sunrise, a tall street of red-brick buildings and glowing street lights rising behind into a pale morning sky, filling the whole vertical frame", scene_short: "on a city street at sunrise"}}
+
+  # colourway variants
+  - {id: kivo_cw_teal, template: colourway, brand: kivo, input: kivo_master@best, seeds: [1],
+     slots: {part: "heel tab and laces", colour: "deep teal"}}
+  - {id: kivo_cw_lime, template: colourway, brand: kivo, input: kivo_master@best, seeds: [1],
+     slots: {part: "heel tab and laces", colour: "electric lime yellow"}}
+  - {id: kivo_cw_black, template: colourway, brand: kivo, input: kivo_master@best, seeds: [1],
+     slots: {part: "knit mesh upper", colour: "matte black"}}
+  - {id: halvia_cw_amber, template: colourway, brand: halvia, input: halvia_master@best, seeds: [1],
+     slots: {part: "frosted glass bottle", colour: "translucent amber brown"}}
+  - {id: halvia_cw_blush, template: colourway, brand: halvia, input: halvia_master@best, seeds: [1],
+     slots: {part: "frosted glass bottle", colour: "soft blush pink"}}
+
+  # before-and-after transformations
+  - {id: after_kitchen, template: transform, brand: null, input: before_kitchen@best, seeds: [1, 2],
+     slots: {instruction: "Renovate this kitchen: replace the cabinet doors with flat matte sage-green doors with slim brass handles, replace the countertop with white quartz, replace the floor with large light grey porcelain tiles, and replace the ceiling light with two modern pendant lights. Keep the sink and window in the same place.",
+             qc: "a renovated modern kitchen with sage green cabinets"}}
+  - {id: after_livingroom, template: transform, brand: null, input: before_livingroom@best, seeds: [1, 2],
+     slots: {instruction: "Virtually stage this empty room as a Scandinavian living room: add a light grey three-seat sofa against the back wall, a round oak coffee table, a wool rug, a floor lamp, two framed prints and a large potted plant near the window. Do not change the walls, floor, window or doorway.",
+             qc: "a furnished Scandinavian living room"}}
+  - {id: after_sneaker, template: transform, brand: null, input: before_sneaker@best, count_query: "a shoe", seeds: [1, 2],
+     slots: {instruction: "Show this exact sneaker after a professional restoration service: the leather cleaned to bright white, creases reduced, the sole whitened, and new clean white laces. Keep the same shoe model, the same camera angle and the same workbench.",
+             qc: "a clean restored white sneaker"}}
+  # run 1 review: both after_personalised candidates duplicated the bottle and placed the text above
+  # "Botanical"; v2 states the object count and pins the text position.
+  # second review of run 1: both after_sneaker candidates turned the single shoe into
+  # an overlapping pair; v2 states the object count, as after_personalised2 did
+  - {id: after_sneaker2, template: transform, brand: null, input: before_sneaker@best, count_query: "a shoe", seeds: [1, 2, 3, 4],
+     slots: {instruction: "The image shows exactly one single shoe. Show this same single shoe after a professional restoration service: the leather cleaned to bright white, creases reduced, the rubber sole whitened, and new clean white laces, with the loose lace still draped over the side. Do not add a second shoe or any other object, and keep the same shoe shape, size and position, the same camera angle and the same workbench.",
+             qc: "a single clean restored white sneaker"}}
+  - {id: after_personalised2, template: transform, brand: null, input: halvia_master@best, count_query: "a serum bottle", seeds: [1, 2, 3, 4],
+     slots: {instruction: "The image shows exactly one serum bottle. On its label, directly underneath the existing line \"30 mL\", add one small line of elegant gold foil script text reading \"for Aoife\". Do not move, resize or duplicate the bottle and do not add any other object; keep all existing label text, the background and the lighting exactly the same.",
+             qc: "a single serum bottle personalised with the name Aoife"}}
+  - {id: after_personalised, template: transform, brand: null, input: halvia_master@best, count_query: "a serum bottle", seeds: [1, 2],
+     slots: {instruction: "Personalise this serum bottle: add a small elegant gold foil line of text reading \"for Aoife\" on the label directly below the words 30 mL. Keep all existing label text, the bottle, the background and lighting exactly the same.",
+             qc: "a serum bottle personalised with the name Aoife"}}
+
+video:
+  - {id: v_halvia_water, template: promo_motion, brand: halvia, input: halvia_water@best, seeds: [7, 8],
+     slots: {camera: "Slow smooth camera push-in towards the bottle", ambient: "Gentle ripples spread across the water surface and a few petals drift slowly, caustic light shimmers softly"}}
+  - {id: v_halvia_botanical, template: promo_motion, brand: halvia, input: halvia_botanical@best, seeds: [7, 8],
+     slots: {camera: "Slow lateral camera dolly from left to right", ambient: "Fern leaves sway slightly in a light breeze and thin morning mist drifts past, sunbeams flicker through the canopy"}}
+  - {id: v_kivo_street, template: promo_motion, brand: kivo, input: kivo_street@best, seeds: [7, 8],
+     slots: {camera: "Slow low-angle camera orbit around the shoe", ambient: "Sunrise light grows warmer, small droplets glisten on the wet pavement, blurred city traffic lights move in the background"}}
+  - {id: v_halvia_reel, template: promo_motion, brand: halvia, input: halvia_reel@best, seeds: [7, 8], size: [704, 1280],
+     slots: {camera: "Slow smooth vertical camera crane down towards the bottle", ambient: "Soft morning light shifts gently and dust motes float in the sunbeam, eucalyptus leaves tremble slightly"}}
+  # review of video pass 1: the push-in enlarged the small label text until it broke up; static camera variant
+  - {id: v_halvia_reel2, template: promo_motion, brand: halvia, input: halvia_reel@best, seeds: [7, 8, 9, 10], size: [704, 1280],
+     slots: {camera: "Locked-off static camera, no zoom and no camera movement", ambient: "Soft morning sunlight slowly brightens across the shelf, the shadows of the eucalyptus leaves sway gently, and a few dust motes drift through the light"}}
+  - {id: v_kivo_reel, template: promo_motion, brand: kivo, input: kivo_reel@best, seeds: [7, 8], size: [704, 1280],
+     slots: {camera: "Slow low-angle camera push-in towards the shoe", ambient: "Sunrise light grows warmer, droplets glisten on the wet pavement, blurred street lights flicker softly in the background"}}
+  - {id: v_kivo_rooftop, template: promo_motion, brand: kivo, input: kivo_rooftop@best, seeds: [7, 8],
+     slots: {camera: "Slow camera push-in with a slight upward tilt", ambient: "Golden-hour sun flares softly behind the skyline and a light haze drifts across the city"}}

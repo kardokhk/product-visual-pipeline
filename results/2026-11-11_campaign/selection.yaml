@@ -1,0 +1,38 @@
+# Review gate: chosen seed per id (visual review of every candidate at full size).
+# t2i, reviewed 2026-11-11
+halvia_master: 33      # centred, plain backdrop, label text correct
+kivo_master: 22        # most legible wordmark, whole shoe in frame
+before_kitchen: 6      # symmetric layout, window and sink clearly placed
+before_livingroom: 6   # cleaner doorway and window
+before_sneaker: 5      # whole shoe visible, clear wear
+
+# edit, reviewed 2026-11-12 (scores in qc_edit.csv, every candidate viewed at full size)
+halvia_bathroom: "halvia_bathroom_lock:2"     # highest identity, lowest product colour error; sage glass held
+halvia_botanical: "halvia_botanical_lock:2"   # highest identity of all HALVIA scenes
+halvia_water: 1                               # v1 and lock equivalent; s1 composition better for motion
+halvia_vanity: "halvia_vanity2:3"            # warm-light versions all drifted (colour dE 13 to 17); neutral-light rerun dE 1.2 to 11.2
+kivo_street: "kivo_street_lock:2"             # s1 candidates flagged count 2 (reflection; false positive)
+kivo_track: 2                                 # s1 heel shape changed
+kivo_rooftop: "kivo_rooftop_lock:1"           # highest identity, lowest colour error of the four
+kivo_studio_coral: "kivo_studio_coral_lock:2" # s1 shoe tinted by the backdrop
+halvia_cw_amber: 1
+halvia_cw_blush: 1
+kivo_cw_teal: 1          # slight teal bleed onto outsole edge
+kivo_cw_lime: 1
+kivo_cw_black: 1         # wordmark became tone-on-tone
+halvia_reel: 2           # s1 bottle colour drifted further
+kivo_reel: 2             # s1 toe clipped by frame edge; count 2 from reflection
+after_kitchen: 2         # s1 removed the sink, which the instruction kept
+after_livingroom: 1      # s2 removed the doorway
+# after_sneaker: rejected; both candidates turned the single shoe into an overlapping pair (s1 missed at first review); superseded by after_sneaker2
+# after_personalised: rejected; both v1 candidates duplicated the bottle; superseded by after_personalised2
+after_personalised2: 3   # one bottle, all label text kept; name placed under HALVIA, not under 30 mL as asked
+
+# video, reviewed 2026-11-12 (qc_video.csv + frame strips); picks re-rendered at export quality 10, same seeds
+v_halvia_water: 7        # s8 push-in enlarged the small label text until it broke up
+v_halvia_botanical: 7
+v_kivo_street: 7         # highest identity_min of all clips (0.98)
+v_kivo_rooftop: 7        # s8 flicker 3.4 vs 1.1
+v_kivo_reel: 7           # s8 shoe slides out of frame (identity_min 0.85)
+v_halvia_reel: "v_halvia_reel2:7"   # static camera; push-in versions broke up the small label text (identity_min 0.83, 0.91)
+after_sneaker2: 1        # one shoe; highest edge alignment (0.66) of four single-shoe candidates

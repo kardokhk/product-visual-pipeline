@@ -1,0 +1,17 @@
+id,seed,template,brand,seconds,peak_gpu_gib,clip_score,identity_mean,identity_min,flicker,n_frames
+v_halvia_botanical,7,promo_motion,halvia,404.0000,22.9600,27.4741,0.9820,0.9694,1.6288,121
+v_halvia_botanical,8,promo_motion,halvia,391.3000,22.9600,29.5549,0.9641,0.9350,0.7199,121
+v_halvia_reel2,10,promo_motion,halvia,404.9000,22.9600,25.2687,0.9889,0.9862,0.6361,121
+v_halvia_reel2,7,promo_motion,halvia,381.8000,22.9600,25.6329,0.9873,0.9769,0.6730,121
+v_halvia_reel2,8,promo_motion,halvia,405.1000,22.9600,24.8957,0.9891,0.9874,0.5771,121
+v_halvia_reel2,9,promo_motion,halvia,385.8000,22.9600,25.9610,0.9768,0.9645,1.1614,121
+v_halvia_reel,7,promo_motion,halvia,374.3000,22.9600,29.6727,0.8965,0.8268,2.1550,121
+v_halvia_reel,8,promo_motion,halvia,374.3000,22.9600,30.3314,0.9367,0.9117,1.2230,121
+v_halvia_water,7,promo_motion,halvia,404.1000,22.9600,26.4139,0.9627,0.9408,2.1486,121
+v_halvia_water,8,promo_motion,halvia,391.7000,22.9600,31.7076,0.9571,0.9429,2.8494,121
+v_kivo_reel,7,promo_motion,kivo,385.9000,22.9600,34.5030,0.9926,0.9894,1.2101,121
+v_kivo_reel,8,promo_motion,kivo,383.0000,22.9600,37.0284,0.9222,0.8512,2.8343,121
+v_kivo_rooftop,7,promo_motion,kivo,380.5000,22.9600,35.7565,0.9872,0.9842,1.4605,121
+v_kivo_rooftop,8,promo_motion,kivo,383.1000,22.9600,36.4277,0.9713,0.9464,3.3667,121
+v_kivo_street,7,promo_motion,kivo,381.7000,22.9600,34.2132,0.9914,0.9868,1.3893,121
+v_kivo_street,8,promo_motion,kivo,374.3000,22.9600,35.3666,0.9752,0.9609,2.0735,121
